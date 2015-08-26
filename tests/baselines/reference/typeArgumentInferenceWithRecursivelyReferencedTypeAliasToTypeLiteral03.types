@@ -1,0 +1,26 @@
+=== tests/cases/compiler/typeArgumentInferenceWithRecursivelyReferencedTypeAliasToTypeLiteral03.ts ===
+type TreeNode = {
+>TreeNode : { leftRight: [TreeNode, TreeNode]; }
+
+    leftRight: [TreeNode, TreeNode];
+>leftRight : [{ leftRight: [TreeNode, TreeNode]; }, { leftRight: [TreeNode, TreeNode]; }]
+>TreeNode : { leftRight: [TreeNode, TreeNode]; }
+>TreeNode : { leftRight: [TreeNode, TreeNode]; }
+
+};
+
+function foo<U>(x: TreeNode) { }
+>foo : <U>(x: { leftRight: [TreeNode, TreeNode]; }) => void
+>U : U
+>x : { leftRight: [TreeNode, TreeNode]; }
+>TreeNode : { leftRight: [TreeNode, TreeNode]; }
+
+var n: TreeNode;
+>n : { leftRight: [TreeNode, TreeNode]; }
+>TreeNode : { leftRight: [TreeNode, TreeNode]; }
+
+foo(n);
+>foo(n) : void
+>foo : <U>(x: { leftRight: [TreeNode, TreeNode]; }) => void
+>n : { leftRight: [TreeNode, TreeNode]; }
+

@@ -1,0 +1,25 @@
+=== tests/cases/compiler/typeArgumentInferenceWithRecursivelyReferencedTypeAliasToTypeLiteral03.ts ===
+type TreeNode = {
+>TreeNode : Symbol(TreeNode, Decl(typeArgumentInferenceWithRecursivelyReferencedTypeAliasToTypeLiteral03.ts, 0, 0))
+
+    leftRight: [TreeNode, TreeNode];
+>leftRight : Symbol(leftRight, Decl(typeArgumentInferenceWithRecursivelyReferencedTypeAliasToTypeLiteral03.ts, 0, 17))
+>TreeNode : Symbol(TreeNode, Decl(typeArgumentInferenceWithRecursivelyReferencedTypeAliasToTypeLiteral03.ts, 0, 0))
+>TreeNode : Symbol(TreeNode, Decl(typeArgumentInferenceWithRecursivelyReferencedTypeAliasToTypeLiteral03.ts, 0, 0))
+
+};
+
+function foo<U>(x: TreeNode) { }
+>foo : Symbol(foo, Decl(typeArgumentInferenceWithRecursivelyReferencedTypeAliasToTypeLiteral03.ts, 2, 2))
+>U : Symbol(U, Decl(typeArgumentInferenceWithRecursivelyReferencedTypeAliasToTypeLiteral03.ts, 4, 13))
+>x : Symbol(x, Decl(typeArgumentInferenceWithRecursivelyReferencedTypeAliasToTypeLiteral03.ts, 4, 16))
+>TreeNode : Symbol(TreeNode, Decl(typeArgumentInferenceWithRecursivelyReferencedTypeAliasToTypeLiteral03.ts, 0, 0))
+
+var n: TreeNode;
+>n : Symbol(n, Decl(typeArgumentInferenceWithRecursivelyReferencedTypeAliasToTypeLiteral03.ts, 5, 3))
+>TreeNode : Symbol(TreeNode, Decl(typeArgumentInferenceWithRecursivelyReferencedTypeAliasToTypeLiteral03.ts, 0, 0))
+
+foo(n);
+>foo : Symbol(foo, Decl(typeArgumentInferenceWithRecursivelyReferencedTypeAliasToTypeLiteral03.ts, 2, 2))
+>n : Symbol(n, Decl(typeArgumentInferenceWithRecursivelyReferencedTypeAliasToTypeLiteral03.ts, 5, 3))
+
